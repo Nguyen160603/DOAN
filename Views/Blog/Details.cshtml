@@ -1,0 +1,242 @@
+﻿@model TbBlog
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<TbBlogComment> blogComment = ViewBag.blogComment;
+}
+<!-- Header  Inner style-->
+<section class="row final-inner-header">
+    <div class="container">
+        <h2 class="this-title">News Details</h2>
+    </div>
+</section>
+<section class="row final-breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li class="active">News Details</li>
+        </ol>
+    </div>
+</section>
+<!-- Header  Slider style-->
+<!-- News style-->
+<section class="container clearfix common-pad-inner">
+    <div class="row">
+        <div class="col-md-4 col-sm-12 pull-left">
+            <div class="single-sidebar-widget">
+                <!-- Search style-->
+                <div class="single-sidebar-widget-outer">
+                    <div class="sec-title">
+                        <h2>Search</h2>
+                    </div>
+                    <div class="widget-search-blog">
+                        <div class="row widget-inner">
+                            <form action="#" method="get" class="search-form">
+                                <div class="input-group">
+                                    <input type="search" placeholder="Enter Search keywords" class="form-control"><span class="input-group-addon">
+                                        <button type="submit"><i class="icon icon-Search"></i></button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Search style-->
+                <!-- Categories style-->
+                <div class="single-sidebar-widget-outer">
+                    <div class="sec-title-cat sec-title">
+                        <h2>Categories</h2>
+                    </div>
+                    <div class="categories">
+                        <ul>
+                            <li><a href="#">Beach perpared for  new season</a></li>
+                            <li><a href="#">Near by places of our resort</a></li>
+                            <li><a href="#">Lots of Activities in resort</a></li>
+                            <li><a href="#">Beach near our resort</a></li>
+                            <li><a href="#">Property type and title clear</a></li>
+                            <li><a href="#">New Families rooms</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Categories style-->
+                @await Component.InvokeAsync("RecentBlog")
+                <!-- Tags Clouds style-->
+                <div class="single-sidebar-widget-outer">
+                    <div class="sec-title">
+                        <h2>Tags Clouds</h2>
+                    </div>
+                    <div class="tag-cloud">
+                        <ul>
+                            <li><a href="#">Most Popular places</a></li>
+                            <li><a href="#">Rooms</a></li>
+                            <li><a href="#">top rated resorts</a></li>
+                            <li><a href="#">Tips & Tricks</a></li>
+                            <li><a href="#">Real news</a></li>
+                            <li><a href="#">OUr Agents</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Tags Clouds style-->
+            </div>
+        </div>
+        <div class="col-md-8 col-sm-12 pull-right">
+            <div class="single-post-wrapper">
+                <article class="single-blog-post img-cap-effect">
+                    <div class="img-box">
+                        <a href="news-details.html">
+                            <img src="images\news\4.jpg" alt="" class="img-responsive">
+                            <div class="date-box">
+                                <div class="date-inner">
+                                    <div class="date-c-inner">
+                                        <p>25<span>June</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="meta-info">
+                        <div class="content-box">
+                            <ul class="post-links">
+                                <li><a href="#"><i class="fa fa-user"></i> By:  Michale John</a></li>
+                                <li><a href="#"><i class="fa fa-tag"></i> Accomodation</a></li>
+                                <li><a href="#"><i class="fa fa-comments-o"></i> Comments: @blogComment.Count()</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3>@Html.DisplayFor(model => model.Title)</h3>
+                    <p>@Model.Description</p>
+                    <p><b></b>@Html.Raw(Model.Description)</p>
+                </article>
+                <div class="news-comments">
+                    <h3 class="comments_count">Comments @blogComment.Count()</h3>
+                    <div class="comments">
+                         @foreach(var item in blogComment)
+                        {
+                            <div class="media comment">
+                                <div class="media-left"><img src="images\news\coments1.jpg" alt=""></div>
+                                <div class="media-body">
+                                    <h5 class="commenter-name">@item.Name</h5>
+                                    <p>@item.Detail</p>
+                                    <ul class="date-reply nav">
+                                        <li><a href="#">@item.CreatedDate</a></li>
+                                        <li><a href="#">reply</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        }
+                        <!-- Comment-->
+                        <div class="media comment comment-bg">
+                            <div class="media-left"><img src="images\news\coments3.jpg" alt=""></div>
+                            <div class="media-body">
+                                <h5 class="commenter-name">Merry John</h5>
+                                <p>Duis aute irure dolor in reprehenderit in vol uptate velit esse cillum dolore eu fugiat nulla pari atur. Excepteur sint occaecat cupidatat non proid pent.</p>
+                                <ul class="date-reply nav">
+                                    <li><a href="#">Dec 09 2015</a></li>
+                                    <li><a href="#">reply</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Comment-->
+                        <div class="media comment">
+                            <div class="media-left"><img src="images\news\coments1.jpg" alt=""></div>
+                            <div class="media-body">
+                                <h5 class="commenter-name">Merry John</h5>
+                                <ul class="date-reply nav">
+                                    <li><a href="#">Dec 09 2015</a></li>
+                                    <li><a href="#">reply</a></li>
+                                </ul>
+                                <p>Duis aute irure dolor in reprehenderit in vol uptate velit esse cillum dolore eu fugiat nulla pari atur. Excepteur sint occaecat cupidatat non proid pent.</p>
+                                <div class="media comment reply">
+                                    <div class="media-left"><img src="images\news\coments2.jpg" alt=""></div>
+                                    <div class="media-body">
+                                        <h5 class="commenter-name">Merry John</h5>
+                                        <p>Duis aute irure dolor in reprehenderit in vol uptate velit esse cillum dolore eu fugiat nulla pari atur. Excepteur sint occaecat.</p>
+                                        <ul class="date-reply nav">
+                                            <li><a href="#">Dec 09 2015</a></li>
+                                            <li><a href="#">reply</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Comment-->
+                            </div>
+                        </div>
+                        <!-- Comment-->
+                        <div class="media comment comment-bg">
+                            <div class="media-left"><img src="images\news\coments2.jpg" alt=""></div>
+                            <div class="media-body">
+                                <h5 class="commenter-name">Merry John</h5>
+                                <p>Duis aute irure dolor in reprehenderit in vol uptate velit esse cillum dolore eu fugiat nulla pari atur. Excepteur sint occaecat cupidatat non proid pent.</p>
+                                <ul class="date-reply nav">
+                                    <li><a href="#">Dec 09 2015</a></li>
+                                    <li><a href="#">reply</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Leave a Comment-->
+                    <div class="leave-comments">
+                        <h3 class="leave-comment-title">Leave a Comment</h3>
+                        <form action="#" method="post" class="comment_form row m0">
+                            <input type="text" placeholder="Enter your name" class="form-control">
+                            <input type="email" placeholder="Enter your email address" class="form-control">
+                            <textarea placeholder="Wrtie message" class="form-control"></textarea>
+                            <button type="submit" class="res-btn">Submit now <i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
+<!-- News style-->
+<!-- Welcome banner  style-->
+<div class="nasir-subscribe-form-row row">
+    <div class="container">
+        <div class="row this-dashed">
+            <div class="this-texts">
+                <h2>STAY TUNED WITH US</h2>
+                <h3>Get our updated offers, discounts, events and much more!</h3>
+            </div>
+            <form action="#" method="post" class="this-form input-group">
+                <input type="email" placeholder="Enter your email address" class="form-control"><span class="input-group-addon">
+                    <button type="submit" class="res-btn">subscribe<i class="fa fa-arrow-right"></i></button>
+                </span>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Welcome banner  style-->
+<input type="hidden" id="blog_id" value="@Model.BlogId" />
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#c_submit").click(function () {
+                _id = $("#blog_id").val();
+                _name = $("#c_name").val();
+
+                _email = $("#c_email").val();
+                _message = $("#c_message").val();
+                $.ajax({
+                    url: "/Blog/Create",
+                    type: "POST",
+                    data: { id: _id, name: _name, email: _email, message: _message },
+                    success: function (result) {
+                        if (result != null) {
+                            $("#c_name").val("");
+
+                            $("#c_email").val("");
+                            $("#c_message").val("");
+                            _date = Untils.getCurrentDate();
+                            toastr.success('Gửi thành công');
+                            _sHtml = '<div class="blog-comment-item mb-8"> <div class="blog-comment-img"> <img src="/assets/images/avatar/1.jpg" alt="Avatar"> </div> <div class="blog-comment-content"> <div class="user-meta"> <span><strong>' + _name + ' -</strong> ' + _date + '</span> <a class="btn btn-link hover-white d-none d-md-flex" href="javascript:void(0)"> <i class="fa fa-reply me-2"></i> Reply </a> </div> <p class="user-comment mb-0">' + _message + '</p> <a class="btn btn-link hover-white d-inline-flex d-md-none mt-5" href="javascript:void(0)"> <i class="fa fa-reply me-2"></i> Reply </a> </div> </div>';
+                            $("#blog_comment").append(_sHtml);
+                        }
+                        else {
+                            toastr.success('Gửi không thành công');
+                        }
+                    }
+                })
+            });
+        })
+    </script>
+}

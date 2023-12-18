@@ -1,0 +1,106 @@
+﻿@model TbBooking
+  <!-- Header  Inner style-->
+<section class="row final-inner-header">
+    <div class="container">
+        <h2 class="this-title">Booking</h2>
+    </div>
+</section>
+<section class="row final-breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li class="active">Booking</li>
+        </ol>
+    </div>
+</section>
+<!-- Header  Slider style-->
+<!-- Booking style-->
+<section class="container clearfix common-pad-inner booknow">
+    <div class="sec-header">
+        <h2>Booking</h2>
+        <h3>Pick a room that best suits your taste and budget</h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 pull-left">
+            <div class="book-left-content input_form">
+                <form id="contactBooking" action="contact_process.php" method="post">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 m0 col-xs-12">
+                            <input id="name" type="text" name="name" placeholder="Your name" class="form-control">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 m0 col-xs-12">
+                            <input id="email" type="email" name="email" placeholder="Your Email" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 m0 col-xs-12">
+                            <input placeholder="Arival Date" name="arival_date" type="text" class="form-control datepicker-example8">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 m0 col-xs-12">
+                            <input type="text" placeholder="Departure Date" name="departure_date" class="form-control datepicker-example8">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 m0 col-xs-12">
+                            <div class="select-box">
+                                <select name="chooseAdults" class="select-menu">
+                                    <option value="default">Adults</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 m0 col-xs-12">
+                            <div class="select-box">
+                                <select name="chooseChildren" class="select-menu">
+                                    <option value="default">Children</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <textarea id="message" rows="6" name="message" placeholder="Message" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <button type="submit" class="res-btn">Submit Now</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-4 pull-right">
+            <div class="book-right">
+                <span><img src="~/images/booking/1.jpg" alt=""></span>
+                <h2>About Resort</h2>
+                <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliqu id etx ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Booking style-->
+<!-- Welcome banner  style-->
+<div class="nasir-subscribe-form-row row">
+    <div class="container">
+        <div class="row this-dashed">
+            <div class="this-texts">
+                <h2>STAY TUNED WITH US</h2>
+                <h3>Get our updated offers, discounts, events and much more!</h3>
+            </div>
+            <form action="#" method="post" class="this-form input-group">
+                <input type="email" placeholder="Enter your email address" class="form-control"><span class="input-group-addon">
+                    <button type="submit" class="res-btn">subscribe<i class="fa fa-arrow-right"></i></button>
+                </span>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Welcome banner  style-->

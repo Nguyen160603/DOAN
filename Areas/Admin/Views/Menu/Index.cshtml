@@ -1,0 +1,75 @@
+﻿@model IEnumerable<DOAN.Models.TbMenu>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Danh sách sản phẩm</h4>
+                        <div class="col-sm-12">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="/admin">Trang chủ</a></li>
+                                <li class="breadcrumb-item active">Quản lý sản phẩm</li>
+                            </ol>
+                        </div>
+                        <p>
+                            <a type="button" class="btn btn-success" asp-area="Admin" asp-controller="Menu" asp-action="Create">
+                                <i class="mdi mdi-file-document"></i>Thêm sản phẩm
+                            </a>
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                       
+                                        <th>Tên Menu</th>
+                                        <th>Bí danh</th>
+                                        <th>Cấp độ</th>
+
+                                        <th>Menu Cha</th>
+                                        <th>Chức vụ</th>
+
+                                        <th>Trạng thái</th>
+                                        <th>Chức năng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int i = 1;
+                                    }
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr id="tr_@item.MenuId">
+                                            <td>@(i++)</td>
+                                            
+                                            <td>@item.Title</td>
+                                            <td>@item.Alias</td>
+                                            <td>@item.Levels</td>
+                                            <td>@item.ParentId</td>
+                                            <td>@item.Position</td>
+                                            
+                                            <td>@Html.CheckBoxFor(modelItem => item.IsActive)</td>
+                                            <td>
+                                                <a class="btn btn-success btn-sm" asp-action="Edit" asp-route-id="@item.MenuId">Sửa</a> |
+                                                <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.MenuId">Chi tiết</a> |
+                                                <a class="btn btn-danger btn-sm btn-delete" data-id="@item.MenuId">Xóa</a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+﻿@using DOAN.Areas.Admin.Models;
+@model IList<AdminMenu>
+
+
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="index.html">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Dashboard</span>
+            </a>
+        </li>
+        @foreach (var item in Model.Where(m => m.ItemLevel == 1).OrderBy(n => n.ItemOrder))
+        {
+            var Pid = item.AdminMenuID;
+
+            var Smenu = Model.Where(p => p.ParentLevel == Pid).OrderBy(p => p.ItemOrder).ToList();
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#@item.ItemTarget" aria-expanded="false" aria-controls="@item.ItemTarget">
+                    <i class="@item.Icon"></i>
+                    <span class="menu-title">@item.ItemName</span>
+                    @if(Smenu.Count()>0)
+                    {
+                        <i class="menu-arrow"></i>
+                    }
+                    
+                </a>
+
+                
+                <div class="collapse" id="@item.ItemTarget">
+                    @if (Smenu.Count() > 0)
+                    {
+                        <ul class="nav flex-column sub-menu">
+                            @foreach (var smn in Smenu)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Admin/@smn.ControllerName/@smn.ActionName">@smn.ItemName</a>
+                                </li>
+                            }
+                       
+                       
+                        </ul>
+                    }
+                </div>
+            </li>
+        }
+
+
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                <i class="icon-head menu-icon"></i>
+                <span class="menu-title">User Pages</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
+                <i class="icon-ban menu-icon"></i>
+                <span class="menu-title">Error pages</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="error">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="pages/documentation/documentation.html">
+                <i class="icon-paper menu-icon"></i>
+                <span class="menu-title">Documentation</span>
+            </a>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,65 @@
+﻿@using DOAN.Models;
+@using DOAN.Utilities;
+@model IEnumerable<TbMenu>
+
+<nav id="main-navigation-wrapper" class="navbar navbar-default _fixed-header _light-header stricky">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target="#main-navigation" aria-expanded="false" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"><img alt="Awesome Image" src="~/images/header\logo2.png"></a>
+        </div>
+        <div id="main-navigation" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                @foreach (var item in Model.Where(i => i.Levels == 1))
+                {
+                    var menuId = item.MenuId; 
+                    var menuChild = Model.Where(i => i.ParentId == menuId).OrderBy(i => i.Position);
+                    <li>
+                        <a href="/@item.Alias"  role="button" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle">
+                            @item.Title
+                            @if (menuChild.Count() > 0)
+                            {
+                                <span class="glyphicon glyphicon-chevron-down"></span>
+                            }
+                        </a>
+                        @if (menuChild.Count() > 0)
+                        {
+                            <ul class="dropdown-submenu dropdown-menu">
+                                @foreach (var itemChild in menuChild)
+                                {
+                                   
+                                    <li>
+                                        <a href="@itemChild.Alias">@itemChild.Title</a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </li>
+                }
+            </ul>
+            <ul class="nav navbar-nav right-side-nav">
+                <li class="dropdown">
+                    <a href="#"><span class="phone-only">Search</span><i class="icon icon-Search"></i></a>
+                    <ul class="dropdown-submenu has-search-form align-right">
+                        <li>
+                            <form action="#" class="navbar-form">
+                                <input type="text" placeholder="Enter Your Keyword">
+                                <button type="submit"><i class="icon icon-Search"></i></button>
+                            </form>
+                            <!-- /.navbar-form-->
+                        </li>
+                    </ul>
+                </li>
+                <li><a role="button" data-toggle="collapse" href="#sidebarCollapse" aria-expanded="false" aria-controls="sidebarCollapse"><span class="phone-only">Side Menu</span><i class="fa fa-bars"></i></a></li>
+            </ul>
+            <!-- /.nav navbar-right-->
+            <form action="#" class="nav-search-form row">
+                <div class="input-group">
+                    <input type="search" placeholder="Type here for search" class="form-control"><span class="input-group-addon">
+                        <button type="submit"><i class="icon icon-Search"></i></button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
+

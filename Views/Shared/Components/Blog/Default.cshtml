@@ -1,0 +1,63 @@
+﻿@using DOAN.Models;
+@using DOAN.Utilities;
+@model IEnumerable<TbBlog>
+
+@{
+    List<TbBlogComment> listComment = ViewBag.blogComment;
+}
+
+<style>
+    .title {
+        display: block;
+        display: -webkit-box;
+        -webkit-line-clamp: 1; /* số dòng hiển thị */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .short-desc {
+        display: block;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* số dòng hiển thị */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
+<!-- Blogs and Events  style-->
+<section class="clearfix news-wrapper">
+    <section class="container clearfix common-pad">
+        <div class="sec-header">
+            <h2>News and Events</h2>
+            <h3>Pick a room that best suits your taste and budget</h3>
+        </div>
+        <div class="row event-pad">
+                @foreach (var item in Model)
+                {
+                var blogId = item.BlogId;
+                var commentCount = listComment.Where(i => i.BlogId == blogId);
+                string url = Functions.TitleSlugGeneration("Blog", item.Title, item.BlogId);
+                    <div class="col-md-4 col-sm-4 col-xs-12">   
+                        <div class="news-evn-img">
+                            <a href="/@url"><img src="@item.Image" alt="" class="img-responsive"></a>
+                            <div class="event-date">
+                            <h3>@item.CreatedDate.Value.ToString("dd")<small>@item.CreatedDate.Value.ToString("MMM")</small></h3>
+                            </div>
+                        </div>
+                        <div class="news-evn-cont">
+                            <div class="news-meta">
+                                <a href="#">By: Anjori Meyami</a>
+                                <a href="/@url">Comments: @commentCount.Count() </a>
+                            </div>
+                            <a href="/@url" class="title">
+                                <h3>@item.Title</h3>
+                            </a>
+                        <p class="short-desc">@item.Description</p>
+                        </div>
+                </div>
+            }
+            </div>
+    </section>
+</section>
+<!-- Blogs and Events  style-->

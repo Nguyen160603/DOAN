@@ -1,0 +1,65 @@
+﻿@model DOAN.Models.TbBlog
+
+@{
+    ViewData["Title"] = "Edit Blogs";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<!--Main container start -->
+
+<!-- Modal for delete confirmation -->
+<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmationModalLabel">Xác nhận xóa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có chắc chắn muốn xóa không?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn green radius-xl outline" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn red outline radius-xl " id="confirmDeleteBtn">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $(".btn-delete").click(function () {
+                _id = $(this).data("id");
+
+                // Mở modal xác nhận xóa
+                $("#deleteConfirmationModal").modal("show");
+
+                // Xác nhận xóa khi nhấn nút Xóa trong modal
+                $("#confirmDeleteBtn").click(function () {
+                    $.ajax({
+                        url: "/admin/blogs/delete",
+                        type: "POST",
+                        data: { id: _id },
+                        success: function (result) {
+                            if (result) {
+                                $("#tr_" + _id).remove();
+                                toastr.success('Xóa thành công');
+                            }
+                            else {
+                                toastr.error('Xóa không thành công');
+                            }
+                        }
+                    });
+
+                    // Đóng modal sau khi xác nhận xóa
+                    $("#deleteConfirmationModal").modal("hide");
+                });
+            });
+        })
+    </script>
+}
+
+

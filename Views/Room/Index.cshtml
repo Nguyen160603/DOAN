@@ -1,0 +1,61 @@
+﻿@using DOAN.Utilities;
+@model IPagedList<TbRoom>
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+
+@{
+    ViewData["Title"] = "Room list";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Header  Inner style-->
+    <section class="row final-inner-header">
+      <div class="container">
+        <h2 class="this-title">Rooms & Suits</h2>
+      </div>
+    </section>
+    <section class="row final-breadcrumb">
+      <div class="container">
+        <ol class="breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li class="active">Rooms & Suits</li>
+        </ol>
+      </div>
+    </section>
+    <!-- Header  Slider style-->
+    <!-- About Resort style-->
+    <section class="container clearfix common-pad-inner about-info-box nasir-room-grid-header">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-xs-12">
+          <div class="sec-header3">
+            <h2>Our Rooms and Suits</h2>
+            <h3>Pick a room that best suits your taste and budget</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Resort style-->
+    <section class="row nasir-room-grid">
+      <div class="container">
+        <div class="row">
+            
+            @foreach (var item in Model)
+            {
+                string url = Functions.TitleSlugGeneration("Room", item.Title != null ? item.Title : "", item.RoomId);
+              
+                <div class="col-sm-4 nroom-grid">
+                    <a href="single-room.html" class="room-img"><img src="@item.Image" alt=""></a>
+                    <div class="row this-conts">
+                        <div class="media">
+                            <div class="media-body this-title">@item.Title</div>
+                            <div class="media-right">@item.Price<small>Per Night</small></div>
+                        </div>
+                        <p>@item.Description</p><a href="/@url" class="read-more">view room<i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            
+            }
+            
+
+        </div>
+      </div>
+    </section>

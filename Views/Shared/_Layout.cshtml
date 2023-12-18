@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lake Resort || Responsive BootStrap HTML 5 Template</title>
+    <!-- reponsive meta-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap-->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/font-awesome.min.css" rel="stylesheet">
+    <!-- strock gap icons-->
+    <link rel="stylesheet" href="~/vendors/Stroke-Gap-Icons-Webfont/style.css">
+    <link rel="stylesheet" href="~/css/animate.min.css">
+    <!-- owl-carousel-->
+    <link rel="stylesheet" href="~/vendors/owlcarousel/owl.carousel.css">
+    <link rel="stylesheet" href="~/vendors/imagelightbox/imagelightbox.min.css">
+    <link rel="stylesheet" href="~/vendors/jquery-ui-1.11.4/jquery-ui.min.css">
+    <!-- Main Css-->
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <!--if IE-->
+    <link rel="stylesheet" type="text/css" href="~/css/all-ie-only.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file://-->
+    <!--if lt IE 9
+    script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+    script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+
+    -->
+</head>
+<body>
+    <!-- .hidden-bar-->
+    <section id="sidebarCollapse" class="side-menu">
+        <button type="button" data-toggle="collapse" data-target="#sidebarCollapse" aria-expanded="false" aria-controls="sidebarCollapse" class="close-button"><i class="fa fa-times"></i></button>
+        <div class="side-menu-widget about-widget">
+            <a href="index.html" class="logo"><img src="~/images/icon\lr-home.png" alt="Awesome Image"></a>
+            <h3 class="title playball-font">Welcome to Resort</h3>
+            <!-- /.title playball-font-->
+            <p>Edolor sit amet, consectetur, adipis civelit sed quia non qui dolorem ipsum quia dolor sit amet, consectetur, adipis civelit.</p>
+        </div>
+        <!-- /.side-menu-widget-->
+        <div class="side-menu-widget gallery-widget">
+            <div class="title-box">
+                <h4>From Our Gallery</h4><span class="decor-line inline"></span>
+            </div>
+            <!-- /.title-box-->
+            <ul class="list-inline">
+                <li><a href="#"><img src="~/images/gallery-thumb\1.jpg" alt="Awesome Image"></a></li>
+                <li><a href="#"><img src="~/images/gallery-thumb\2.jpg" alt="Awesome Image"></a></li>
+                <li><a href="#"><img src="~/images/gallery-thumb\3.jpg" alt="Awesome Image"></a></li>
+                <li><a href="#"><img src="~/images/gallery-thumb\4.jpg" alt="Awesome Image"></a></li>
+                <li><a href="#"><img src="~/images/gallery-thumb\5.jpg" alt="Awesome Image"></a></li>
+                <li><a href="#"><img src="~/images/gallery-thumb\6.jpg" alt="Awesome Image"></a></li>
+                <li><a href="#"><img src="~/images/gallery-thumb\7.jpg" alt="Awesome Image"></a></li>
+                <li><a href="#"><img src="~/images/gallery-thumb\8.jpg" alt="Awesome Image"></a></li>
+            </ul>
+            <!-- /.list-inline-->
+            <ul class="contact-info">
+                <li>hello@youremail.com</li>
+                <li>+1234567890</li>
+            </ul>
+            <!-- /.contact-info-->
+        </div>
+        <!-- /.side-menu-widget-->
+        <div class="side-menu-widget subscribe-widget">
+            <div class="title-box">
+                <h4>Subscribe for our Special Offers</h4><span class="decor-line inline"></span>
+            </div>
+            <!-- /.title-box-->
+            <form action="#" class="clearfix">
+                <input type="text" placeholder="Enter email address">
+                <button type="submit" class="res-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    <!-- /.side-menu-->
+    <section class="top-bar dhomev">
+        <div class="container">
+            <div class="pull-left left-infos contact-infos">
+                <ul class="list-inline">
+                    <li><a href="#"><i class="fa fa-phone"></i> (+44) 555 890767</a></li>
+                    <!--comment for inline hack
+                    -->
+                    <li><a href="#"><i class="fa fa-map-marker"></i> 56, Building- Avenue-96, New YOrk</a></li>
+                    <!--comment for inline hack
+                    -->
+                    <li><a href="#"><i class="fa fa-envelope"></i> info@saturnthemes.com</a></li>
+                </ul>
+            </div>
+            <!-- /.pull-left left-infos-->
+            <div class="pull-right right-infos link-list">
+                <ul class="list-inline">
+                    <li><a href="#">Login</a></li>
+                    <!--comment for inline hack
+                    -->
+                    <li><a href="#">Registration</a></li>
+                </ul>
+            </div>
+            <!-- /.pull-right right-infos link-list-->
+        </div>
+        <!-- /.container-->
+    </section>
+    <!-- /.top-bar-->
+    @await Component.InvokeAsync("MenuView")
+    @RenderBody()
+    <!-- footer  style-->
+    <footer>
+        <section class="clearfix footer-wrapper">
+            <section class="container clearfix footer-pad">
+                <div class="widget about-us-widget col-md-4 col-sm-6">
+                    <a href="index.html"><img src="~/images/footer\logo.png" alt="" class="img-responsive"></a>
+                    <p>Lorem ipsum dolor sit amet, consecte- tur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p><a href="aboutus.html">Read More <i class="fa fa-angle-double-right"></i></a>
+                    <ul class="nav">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest-square"></i></a></li>
+                    </ul>
+                </div>
+                <div class="widget widget-links col-md-2 col-sm-6">
+                    <h4 class="widget_title">Explore</h4>
+                    <div class="widget-contact-list">
+                        <ul>
+                            <li><a href="activities.html">Activities</a></li>
+                            <li><a href="gallery1.html">Gallery</a></li>
+                            <li><a href="aminities.html">Aminities</a></li>
+                            <li><a href="single-room.html">Single Room</a></li>
+                            <li><a href="testimonials.html">Testimonials</a></li>
+                            <li><a href="our-restaurant.html">Dinning</a></li>
+                            <li><a href="offers.html">offers</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="widget widget-links col-md-2 col-sm-6">
+                    <h4 class="widget_title">Quick Links</h4>
+                    <div class="widget-contact-list">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="aboutus.html">About Us</a></li>
+                            <li><a href="suite-room.html">suits & Rooms</a></li>
+                            <li><a href="news-left.html">News</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="booking.html">Booking</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="widget get-in-touch col-md-4 col-sm-6">
+                    <h4 class="widget_title">Get In Touch</h4>
+                    <div class="widget-contact-list">
+                        <ul>
+                            <li>
+                                <i class="fa fa-map-marker"></i>
+                                <div class="fleft location_address"><b>Lake Resort</b><br>Lorance 542B, Tailstoi Town 5248 MT, Wordwide Country</div>
+                            </li>
+                            <li>
+                                <i class="fa fa-phone"></i>
+                                <div class="fleft contact_no"><a href="tel:+018655248503">+ 01865 524 8503</a>  /  <a href="tel:+12549547854">1254 954 7854</a></div>
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope-o"></i>
+                                <div class="fleft contact_mail"><a href="mailto:info@resorthotel.com">info@resorthotel.com</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <section class="container clearfix footer-b-pad">
+            <div class="footer-copy">
+                <div class="pull-left fo-txt">
+                    <p>Copyright © Resort and Hotel 2016. All rights reserved. </p>
+                </div>
+                <div class="pull-right fo-txt">
+                    <p>Created by: <a href="http://themeforest.net/user/designarc">DesignArc</a></p>
+                </div>
+            </div>
+        </section>
+    </footer>
+    <!-- footer  style-->
+    <script src="~/js/jquery-2.2.4.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/jquery.bxslider.js"></script>
+    <!-- owl carousel-->
+    <script src="~/vendors/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.easing.min.js"></script>
+    <script src="~/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/js/zebra_datepicker.js"></script>
+    <!-- jQuery appear-->
+    <script src="~/vendors/jquery-appear/jquery.appear.js"></script>
+    <!-- jQuery countTo-->
+    <script src="~/vendors/jquery-countTo/jquery.countTo.js"></script>
+    <script src="~/js/jquery.form.js"></script>
+    <script src="~/js/jquery.validate.min.js"></script>
+    <script src="~/js/contact.js"></script>
+    <script src="~/js/jquery.mixitup.min.js"></script>
+    <script src="~/js/jquery.fancybox.pack.js"></script>
+    <script src="~/vendors/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+    <script src="~/js/custom.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

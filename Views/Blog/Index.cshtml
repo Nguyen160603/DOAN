@@ -1,0 +1,129 @@
+﻿@using DOAN.Utilities;
+@model IPagedList<TbBlog>
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+
+@{
+    ViewData["Title"] = "Blog list";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<TbBlogComment> listComment = ViewBag.blogComment;
+}
+
+<!-- Header  Inner style-->
+<section class="row final-inner-header">
+    <div class="container">
+        <h2 class="this-title">News Details</h2>
+    </div>
+</section>
+<section class="row final-breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li class="active">News Details</li>
+        </ol>
+    </div>
+</section>
+<!-- Header  Slider style-->
+<!-- News style-->
+<section class="container clearfix common-pad-inner">
+    <div class="row">
+        <div class="col-md-4 col-sm-12 pull-left">
+            <div class="single-sidebar-widget">
+                <!-- Search style-->
+                <div class="single-sidebar-widget-outer">
+                    <div class="sec-title">
+                        <h2>Search</h2>
+                    </div>
+                    <div class="widget-search-blog">
+                        <div class="row widget-inner">
+                            <form action="#" method="get" class="search-form">
+                                <div class="input-group">
+                                    <input type="search" placeholder="Enter Search keywords" class="form-control"><span class="input-group-addon">
+                                        <button type="submit"><i class="icon icon-Search"></i></button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Search style-->
+                <!-- Categories style-->
+                <div class="single-sidebar-widget-outer">
+                    <div class="sec-title-cat sec-title">
+                        <h2>Categories</h2>
+                    </div>
+                    <div class="categories">
+                        <ul>
+                            <li><a href="#">Beach perpared for  new season</a></li>
+                            <li><a href="#">Near by places of our resort</a></li>
+                            <li><a href="#">Lots of Activities in resort</a></li>
+                            <li><a href="#">Beach near our resort</a></li>
+                            <li><a href="#">Property type and title clear</a></li>
+                            <li><a href="#">New Families rooms</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Categories style-->
+                <!-- Popular Posts style-->
+                @await Component.InvokeAsync("RecentBlog")
+                <!-- Popular Posts style-->
+                <!-- Tags Clouds style-->
+                <div class="single-sidebar-widget-outer">
+                    <div class="sec-title">
+                        <h2>Tags Clouds</h2>
+                    </div>
+                    <div class="tag-cloud">
+                        <ul>
+                            <li><a href="#">Most Popular places</a></li>
+                            <li><a href="#">Rooms</a></li>
+                            <li><a href="#">top rated resorts</a></li>
+                            <li><a href="#">Tips & Tricks</a></li>
+                            <li><a href="#">Real news</a></li>
+                            <li><a href="#">OUr Agents</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Tags Clouds style-->
+            </div>
+        </div>
+        <div class="col-md-8 col-sm-12 pull-right">
+            <div class="single-post-wrapper">
+                @foreach (var item in Model)
+                {
+                    var blogId = item.BlogId;
+                    var commentCount = listComment.Where(i => i.BlogId == blogId);
+
+                    string url = Functions.TitleSlugGeneration("Blog", item.Title != null ? item.Title : "", item.BlogId);
+                    <!-- News 1-->
+                    <article class="single-blog-post img-cap-effect">
+                        <div class="img-box">
+                            <a href="/@url">
+                                <img src="@item.Image" alt="" class="img-responsive">
+                                <div class="date-box">
+                                    <div class="date-inner">
+                                        <div class="date-c-inner">
+                                            <p>@item.CreatedDate.Value.ToString("dd")<small>@item.CreatedDate.Value.ToString("MMM")</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="meta-info">
+                            <div class="content-box">
+                                <ul class="post-links">
+                                    <li><a href="#"><i class="fa fa-user"></i> By:  Michale John</a></li>
+                                    <li><a href="#"><i class="fa fa-tag"></i> Accomodation</a></li>
+                                    <li><a href="#"><i class="fa fa-comments-o"></i> Comments: @commentCount.Count() </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h3><a href="/@url">@item.Title</a></h3>
+                        <p>@item.Description</p><a href="/@url" class="read-more btn submit">Read More</a>
+                    </article>
+                    <!-- News 1-->
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- News style-->

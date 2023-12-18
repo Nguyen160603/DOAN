@@ -1,0 +1,28 @@
+﻿@using DOAN.Models;
+@using DOAN.Utilities;
+@model IList<TbBlog>
+
+<!-- Popular Posts style-->
+<div class="single-sidebar-widget-outer">
+    <div class="sec-title">
+        <h2>Popular Posts</h2>
+    </div>
+    <div class="popular-post">
+        <ul>
+            
+            @foreach (var item in Model)
+            {
+                string url = Functions.TitleSlugGeneration("Blog", item.Title, item.BlogId);
+                <li class="img-cap-effect">
+                    <div class="img-box"><a href="news-details.html"><img src="~/images/news/1.jpg" alt=""></a></div>
+                    <div class="content">
+                        <a href="/@url">
+                            <h4>@item.Title</h4>
+                        </a><span>@item.CreatedDate</span>
+                    </div>
+                </li>
+            }   
+        </ul>
+    </div>
+</div>
+<!-- Popular Posts style-->

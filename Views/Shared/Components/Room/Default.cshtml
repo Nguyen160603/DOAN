@@ -1,0 +1,37 @@
+﻿@model IEnumerable<TbRoom>
+@using DOAN.Utilities;
+
+@using DOAN.Models;
+
+<!-- Rooms And Suits style-->
+<section class="container clearfix common-pad nasir-style">
+    <div class="sec-header sec-header-pad">
+        <h2>Rooms And Suits</h2>
+        <h3>Pick a room that best suits your taste and budget</h3>
+    </div>
+      <div class="room-slider">
+            <div class="roomsuite-slider-two">
+                @foreach (var item in Model)
+                {
+                    string url = Functions.TitleSlugGeneration("Room", item.Title != null ? item.Title : "", item.RoomId);
+                    <div class="room-suite room-suite-htwo">
+                
+                        <div class="item">
+                            <div class="ro-img"><img src="images\rooms\8.jpg" alt="" class="img-responsive"></div>
+                            <div class="ro-txt">
+                                <h2>@item.Title</h2>
+                                <p>@item.Description</p>
+                                <div class="ro-text-two">
+                                    <div class="left-p-two pull-left"><a href="/@url" class="res-btn">details</a></div>
+                                    <div class="right-p-two pull-right">
+                                        <p>$@item.Price<span>Per Night</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+  
+                    </div>
+                }
+            </div>
+        </div>
+</section>
